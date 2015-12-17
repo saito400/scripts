@@ -13,3 +13,5 @@ response = Net::HTTP.get(uri)
 json = JSON.parse(response)
 
 p json
+p json.fetch("artists")
+
