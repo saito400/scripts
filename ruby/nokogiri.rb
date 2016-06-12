@@ -2,6 +2,7 @@
 
 require 'open-uri'
 require 'nokogiri'
+require 'uri'
 
 keywords = ['ruby','nokogiri']
 param = keywords.join("+")
@@ -16,5 +17,8 @@ end
 
 doc = Nokogiri::HTML.parse(html, nil, charset)
 
-p doc.xpath('//h3[1]/a/@href')[0].value
+href = doc.xpath('//h3[1]/a/@href')[0].value
 
+uri = URI.parse(href)
+
+p uri.host
